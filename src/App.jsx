@@ -4,9 +4,7 @@ import ResponsiveAppBar from "./Navbar"
 import PermanentDrawerLeft from "./PermanentDrawerLeft"
 
 function App() {
-
   const drawerWidth = '240px'
-  // const appbarWidth = `calc(100% - ${drawerWidth}px)`
 
   return (
     <>
@@ -15,9 +13,9 @@ function App() {
         <ResponsiveAppBar drawerWidth={drawerWidth} />
       </Box>
 
-      <div id="detail">
+      <Box id="detail" sx={{ml:drawerWidth}}>
         <Outlet />
-      </div>
+      </Box>
     </>
   )
 }

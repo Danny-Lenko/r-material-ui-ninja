@@ -8,12 +8,17 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
-// const drawerWidth = 240;
+import Typography from '@mui/material/Typography'
+import NotesOutlinedIcon from '@mui/icons-material/NotesOutlined';
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import { Link } from 'react-router-dom';
 
 export default function PermanentDrawerLeft({drawerWidth}) {
+   const links = [
+      {text:'My Notes', icon: <NotesOutlinedIcon />}, 
+      {text:'Create Note', icon: <AddCircleOutlineOutlinedIcon />}
+   ]
+
   return (
    <Drawer
       sx={{
@@ -27,31 +32,20 @@ export default function PermanentDrawerLeft({drawerWidth}) {
       variant="permanent"
       anchor="left"
    >
-      <Toolbar />
-      <Divider />
-      <List>
-         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-         <ListItem key={text} disablePadding>
-            <ListItemButton>
-               <ListItemIcon>
-               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-               </ListItemIcon>
-               <ListItemText primary={text} />
-            </ListItemButton>
-         </ListItem>
-         ))}
-      </List>
-      <Divider /> 
-      <List>
-         {['All mail', 'Trash', 'Spam'].map((text, index) => (
-         <ListItem key={text} disablePadding>
-            <ListItemButton>
-               <ListItemIcon>
-               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-               </ListItemIcon>
-               <ListItemText primary={text} />
-            </ListItemButton>
-         </ListItem>
+      <Toolbar>
+         <Typography variant="h5" fontFamily='Quicksand' fontWeight='500'>Ninja Notes</Typography>
+      </Toolbar>
+      {/* <Divider /> */}
+      <List sx={{pt:0}}>
+         {links.map(link => (
+            <ListItem key={link.text} disablePadding>
+               <ListItemButton>
+                  <ListItemIcon sx={{color: 'secondary.light'}}>
+                     {link.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={link.text} />
+               </ListItemButton>
+            </ListItem>
          ))}
       </List>
    </Drawer>

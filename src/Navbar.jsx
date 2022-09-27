@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import imgUrl from './images/mario-av.png'
-import { Calculate } from '@mui/icons-material';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -39,6 +38,7 @@ const ResponsiveAppBar = ({drawerWidth}) => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            <Typography variant='span' fontWeight='500' mr={1}>Mario</Typography>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Mario" src={imgUrl} />
