@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import Notes from './Notes'
@@ -12,6 +12,15 @@ import "./index.css";
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
 
+import Data from "./data/db"
+
+const [notes, setNotes] = useState(Data.notes)
+
+function addNewNote(note) {
+  setNotes(prevState => prevState.push(note))
+  console.log(notes)
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,11 +28,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Notes />
+        element: <Notes data={notes} />
       },
       {
         path: "create",
-        element: <Create />,
+        element: <Create addNewNote={addNewNote} />,
       },
     ],
   },

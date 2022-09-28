@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom"
 import ResponsiveAppBar from "./Navbar"
 import PermanentDrawerLeft from "./PermanentDrawerLeft"
 
+
 function App() {
   const drawerWidth = '240px'
 
