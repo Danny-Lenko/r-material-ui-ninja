@@ -11,13 +11,18 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography'
 import NotesOutlinedIcon from '@mui/icons-material/NotesOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function PermanentDrawerLeft({drawerWidth}) {
+   const navigate = useNavigate()
    const links = [
-      {text:'My Notes', icon: <NotesOutlinedIcon />}, 
-      {text:'Create Note', icon: <AddCircleOutlineOutlinedIcon />}
+      {text:'My Notes', icon: <NotesOutlinedIcon />, address: '/'}, 
+      {text:'Create Note', icon: <AddCircleOutlineOutlinedIcon />, address: '/create'}
    ]
+
+   function navigateToPage(page) {
+      navigate(page)
+   }
 
   return (
    <Drawer
@@ -35,11 +40,10 @@ export default function PermanentDrawerLeft({drawerWidth}) {
       <Toolbar>
          <Typography variant="h5" fontFamily='Quicksand' fontWeight='500'>Ninja Notes</Typography>
       </Toolbar>
-      {/* <Divider /> */}
       <List sx={{pt:0}}>
          {links.map(link => (
             <ListItem key={link.text} disablePadding>
-               <ListItemButton>
+               <ListItemButton onClick={() => navigateToPage(link.address)}>
                   <ListItemIcon sx={{color: 'secondary.light'}}>
                      {link.icon}
                   </ListItemIcon>

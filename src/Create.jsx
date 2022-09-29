@@ -27,7 +27,6 @@ const Create = ({addNewNote}) => {
 
    const handleSubmit = (e) => {
       e.preventDefault()
-      // console.log({title, details, category})
       addNewNote({title, details, category, id: new Date()})
    }
 
@@ -49,6 +48,13 @@ const Create = ({addNewNote}) => {
       },
       '&': {
          color: 'grey.500'
+      }
+   }
+
+   const buttonStyle = {
+      backgroundColor: 'secondary.light', 
+      "&:hover": {
+         backgroundColor: 'secondary.main'
       }
    }
 
@@ -95,7 +101,7 @@ const Create = ({addNewNote}) => {
                   </RadioGroup>
                </FormControl>
                <br />
-               <Button variant="contained" endIcon={<ChevronRightOutlinedIcon />} type="submit">
+               <Button sx={buttonStyle} variant="contained" endIcon={<ChevronRightOutlinedIcon />} type="submit">
                   Submit
                </Button>
             </Box>

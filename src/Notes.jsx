@@ -1,24 +1,26 @@
-import { useEffect, useState } from "react"
 import { Box, Container } from "@mui/system"
 import Masonry from "react-masonry-css"
+import OneNote from "./OneNote"
 
-const Notes = ({data}) => {
-
-   console.log(data)
+const Notes = ({notes, deleteNote}) => {
 
    return (
       <Container maxWidth='lg'>
-         <Box mx={3} my={4}>
+         <Box mx={3} my={4} >
             <h2>Hello Notes</h2>
+            <Box sx={{border: '1px solid black', height: '30px'}}></Box>
+
             <Masonry
                breakpointCols={3}
                className="my-masonry-grid"
                columnClassName="my-masonry-grid_column">
-               {/* array of JSX items */}
+               {
+                  notes.map(note => <OneNote key={note.id} note={note} deleteNote={deleteNote} />)
+               }
             </Masonry>
+         
          </Box>
       </Container>
-      
    )
 }
 

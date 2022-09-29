@@ -5,13 +5,12 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import imgUrl from './images/mario-av.png'
+import format from 'date-fns/format';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -34,7 +33,7 @@ const ResponsiveAppBar = ({drawerWidth}) => {
         <Toolbar disableGutters>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex'} }} fontWeight="500">
-            Today's Date
+            Today is the {format(new Date(), 'do MMMM')}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
