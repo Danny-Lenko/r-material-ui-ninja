@@ -6,10 +6,10 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
+import Avatar from '@mui/material/Avatar'; 
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import imgUrl from './images/mario-av.png'
+import imgUrl from '../images/mario-av.png'
 import format from 'date-fns/format';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];

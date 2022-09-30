@@ -7,8 +7,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
+import { useNavigate } from "react-router-dom";
 
 const Create = ({addNewNote}) => {
+   const navigate = useNavigate()
    const [title, setTitle] = useState('')
    const [details, setDetails] = useState('')
    const [category, setCategory] = useState('money')
@@ -28,6 +30,10 @@ const Create = ({addNewNote}) => {
    const handleSubmit = (e) => {
       e.preventDefault()
       addNewNote({title, details, category, id: new Date()})
+      setTitle('')
+      setDetails('')
+      setCategory('money')
+      navigate('/')
    }
 
    const textfieldStyle = {
@@ -90,7 +96,7 @@ const Create = ({addNewNote}) => {
                   <FormLabel id="demo-radio-buttons-group-label">Note Category</FormLabel>
                   <RadioGroup
                      aria-labelledby="demo-radio-buttons-group-label"
-                     defaultValue="money"
+                     defaultValue={category}
                      name="radio-buttons-group"
                      onChange={handleCategoryChange}
                   >

@@ -24,8 +24,7 @@ export default function RecipeReviewCard({note, deleteNote}) {
       : 'R'
 
    return (
-
-      <Card sx={{ maxWidth: 275, minWidth: 200 }}>
+      <Card>
          <CardHeader
             avatar={
                <Avatar sx={avatarStyles} aria-label="recipe">

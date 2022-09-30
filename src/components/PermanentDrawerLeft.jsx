@@ -1,9 +1,6 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -11,10 +8,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography'
 import NotesOutlinedIcon from '@mui/icons-material/NotesOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import { Link, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function PermanentDrawerLeft({drawerWidth}) {
    const navigate = useNavigate()
+   const location = useLocation()
+
    const links = [
       {text:'My Notes', icon: <NotesOutlinedIcon />, address: '/'}, 
       {text:'Create Note', icon: <AddCircleOutlineOutlinedIcon />, address: '/create'}
@@ -43,7 +42,10 @@ export default function PermanentDrawerLeft({drawerWidth}) {
       <List sx={{pt:0}}>
          {links.map(link => (
             <ListItem key={link.text} disablePadding>
-               <ListItemButton onClick={() => navigateToPage(link.address)}>
+               <ListItemButton 
+                  className={location.pathname === link.address ? 'Mui-active' : ''} 
+                  onClick={() => navigateToPage(link.address)}
+               >
                   <ListItemIcon sx={{color: 'secondary.light'}}>
                      {link.icon}
                   </ListItemIcon>

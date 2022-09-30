@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { Box } from "@mui/material"
 import { Routes, Route } from "react-router-dom"
-import ResponsiveAppBar from "./Navbar"
-import PermanentDrawerLeft from "./PermanentDrawerLeft"
-import Notes from "./Notes"
-import Create from "./Create"
+import ResponsiveAppBar from "./components/Navbar"
+import PermanentDrawerLeft from "./components/PermanentDrawerLeft"
+import Notes from "./pages/Notes"
+import Create from "./pages/Create"
 import Data from './data/db.json'
 
 function App() {
